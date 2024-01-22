@@ -2,24 +2,32 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 let interval = null;
 
-document.querySelector("h1").onmouseover = (event) => {
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector("h1");
+
+    if (header) {
+        header.addEventListener("mouseover", handleMouseOver);
+    }
+});
+
+function handleMouseOver(event) {
     let iteration = 0;
 
     clearInterval(interval);
 
     interval = setInterval(() => {
-        event.target.innerTest = event.target.innerText.split("").map((letter, index) => {
-            if(index < iteration) {
-                return event.target.dataset.value[index];
+        const originalText = event.target.dataset.value;
+        event.target.innerText = originalText.split("").map((letter, index) => {
+            if (index < iteration) {
+                return originalText[index];
             }
-            return letters[Math.floor(Math.random() * 26)]
-         })
-         .join("");
-         
-         if(iteration >=event.target.dataset.value.length) {
-            clearInterval(interval);
-         }
+            return letters[Math.floor(Math.random() * letters.length)];
+        }).join("");
 
-         iteration += 1 / 3;
-        }, 30);
+        if (iteration >= originalText.length) {
+            clearInterval(interval);
+        }
+
+        iteration += 1 / 3;
+    }, 30);
 }
