@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Trispace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 :root {
-    --back-color: darkslategray;
-    --light-color: floralwhite;
+    --back-color: #303030;
+    --light-color: cornsilk;
+    --highlight-color: #666;
 }
 
 body {
@@ -12,20 +13,24 @@ body {
     background-color: var(--back-color);
     margin: 0;
     overflow: hidden;
-    font-family: 'Trispace', sans-serif;
+    font-family: 'Space Mono', monospace;
 }
 
 h1 {
-    font-family: 'Trispace', monospace; /* Ensure font name is correctly referenced */
-    font-size: clamp(2rem, 10vw, 8rem);
+    font-size: clamp(2rem, 6vw, 8rem);
     color: var(--light-color);
-    padding: 0 clamp(1rem, 2vw, 3rem);
+    padding: 0 clamp(1rem, 3vw, 4rem);
     transition: background-color 300ms, color 300ms; /* Smooth transition for hover effect */
+    letter-spacing: 0.2ch; /* Half the width of the '0' character */
 }
 
 h1:hover {
     background-color: var(--light-color);
     color: var(--back-color);
+}
+
+.highlight {
+    color: var(--highlight-color);
 }
 
 /* Link style */
@@ -41,10 +46,11 @@ h1:hover {
     display: inline-flex;
     gap: 5px;
     left: 10px;
+    margin-bottom: 20px; 
     padding: 10px 20px;
     position: fixed;
     text-decoration: none;
-    transition: background-color 400ms, border-color 400ms; /* Removed trailing comma */
+    transition: background-color 400ms, border-color 400ms;
     z-index: 1000;
 }
 
@@ -61,4 +67,9 @@ h1:hover {
 .meta-link > span {
     color: var(--light-color);
     font-weight: 500;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around; 
 }
