@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("h1");
 
     if (header) {
+        // Store the original HTML in a data attribute
+        header.dataset.originalHtml = header.innerHTML;
+
         header.addEventListener("mouseover", handleMouseOver);
     }
 });
@@ -26,6 +29,8 @@ function handleMouseOver(event) {
 
         if (iteration >= originalText.length) {
             clearInterval(interval);
+            // Reset to the original HTML with the highlighted letter
+            event.target.innerHTML = event.target.dataset.originalHtml;
         }
 
         iteration += 1 / 3;
