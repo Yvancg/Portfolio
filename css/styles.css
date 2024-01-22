@@ -17,10 +17,9 @@ body {
 
 h1 {
     font-family: 'Trispace', monospace; /* Ensure font name is correctly referenced */
-    font-size: clamp(3rem, 10vw, 10rem);
+    font-size: clamp(2rem, 10vw, 8rem);
     color: var(--light-color);
     padding: 0 clamp(1rem, 2vw, 3rem);
-    border-radius: clamp(0.4rem, 0.75vw, 1rem);
     transition: background-color 300ms, color 300ms; /* Smooth transition for hover effect */
 }
 
