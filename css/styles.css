@@ -68,11 +68,11 @@ h1:hover {
 /* Styling for h2 elements */
 h2 {
     font-size: clamp(1rem, 3vw, 4rem);
-    align-content: center;
     background-color: var(--light-color);
     color: var(--highlight-color);
     margin: auto;
     padding: 0 clamp(0.25rem, 0.9vw, 1rem);
+    text-align: center; 
     transform: rotate(-4deg);
     transition: transform 1500ms ease-in-out;
     z-index: 2;
@@ -98,7 +98,6 @@ h2 {
     left: 10px;
     margin: 20px;
     padding: 10px 20px;
-    position: static;
     text-decoration: none;
     transition: background-color 400ms, border-color 400ms;
     z-index: 1000;
