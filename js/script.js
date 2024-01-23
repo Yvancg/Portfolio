@@ -79,7 +79,7 @@ document.addEventListener('mousemove', (event) => {
 
 // Remove the effects that do not work on mobiles
 document.addEventListener("DOMContentLoaded", () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = navigator.userAgent || window.opera;
 
     // Check for iOS and Android
     if (/iPad|iPhone|iPod/.test(userAgent) || /android/i.test(userAgent)) {
