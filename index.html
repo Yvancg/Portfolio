@@ -3,36 +3,50 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Linking CSS File -->
-    <link href="/css/styles.css" rel="stylesheet">
     <title>Yvan's Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon">
+    <!-- Favicon for the website -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Link to external CSS file -->
+    <link href="/css/styles.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Animated blob element -->
     <div id="blob"></div>
+    <!-- Blur effect element -->
     <div id="blur"></div>
 
+    <!-- Main heading with highlighted letter -->
     <h1 data-value="YVANC.GOUDARD">YVAN<span class="highlight">C.</span>GOUDARD</h1>
 
-    <h2> SELF_DEV DOT COMMS</h2>
+    <!-- Subheading -->
+    <h2>SELF_DEV DOT COMMS</h2>
 
+    <div class="screen">  
+        <div class="screen-image"></div>  
+        <div class="screen-overlay"></div>  
+        <div class="screen-content">
+          <i class="screen-icon fa-brands fa-heart"></i>
+        </div>
+          
+    <!-- Footer with social links -->
     <footer>
-        <div id="links"
-        <a id="yt-link" class="meta-link" href="https://www.linkedin.com/in/yvancgoudard/" target="_blank" rel="noopener noreferrer" aria-label="Link to YouTube">
-            <i class="fa-brands fa-linkedin-in"></i>
-            <span>LinkedIn</span>
-        </a>
-        <a id="source-link" class="meta-link" href="https://github.com/Yvancg" target="_blank" rel="noopener noreferrer" aria-label="Link to the source">
-            <i class="fa-solid fa-link"></i>
-            <span>Source</span>
-        </a>
+        <div id="links">
+            <!-- LinkedIn link -->
+            <a id="yt-link" class="meta-link" href="https://www.linkedin.com/in/yvancgoudard/" target="_blank" rel="noopener noreferrer" aria-label="Link to LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+            </a>
+            <!-- GitHub link -->
+            <a id="source-link" class="meta-link" href="https://github.com/Yvancg" target="_blank" rel="noopener noreferrer" aria-label="Link to the source">
+                <i class="fa-solid fa-link"></i>
+                <span>Source</span>
+            </a>
         </div>
     </footer>
 
-    <!-- Linking the JavaScript file -->
+    <!-- JavaScript file -->
     <script src="/js/script.js"></script>
-
 </body>
 </html>
