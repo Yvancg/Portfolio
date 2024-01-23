@@ -183,7 +183,6 @@ h2 {
     margin: auto;
     overflow: hidden;
     position: relative;
-    transform-style: preserve-3d;
     z-index: 10;
 }
   
@@ -329,10 +328,10 @@ h2 {
 
 @keyframes float {
     0%, 100% {
-        transform: translateY(2px);
+        transform: translateY(20px);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-2px);
     }
 }
 
