@@ -61,7 +61,8 @@ h2 {
     background-color: var(--light-color);
     color: var(--highlight-color);
     padding: 0 clamp(0.25rem, 0.9vw, 1rem);
-    rotate: -4deg; /* Rotation effect */
+    rotate: -4deg;
+    transition: transform 1500ms ease-in-out;
     z-index: 2;
 }
 

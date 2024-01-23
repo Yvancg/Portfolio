@@ -61,19 +61,18 @@ if (blob) {
     });
 }
 
-// Move the profile pic with the mouse
+// Rotate the h2 tag with the mouse
 document.addEventListener('mousemove', (event) => {
     const { clientX } = event;
     const screenWidth = window.innerWidth;
-    const midScreen = screenWidth / 2;
-    const rotationDegree = 80; // Maximum rotation degree
+    const rotationDegree = 8; // Maximum rotation degree
 
     // Calculate rotation based on mouse position
-    const rotation = ((clientX - midScreen) / midScreen) * rotationDegree;
+    const rotation = ((clientX / screenWidth) - 0.5) * 2 * rotationDegree;
 
-    // Apply rotation to the .screen element
-    const screenElement = document.querySelector('.screen');
-    if (screenElement) {
-        screenElement.style.transform = `translate(-50%, -50%) rotateY(${rotation}deg)`;
-    }
+    // Apply rotation to all h2 elements
+    const h2Elements = document.querySelectorAll('h2');
+    h2Elements.forEach(h2 => {
+        h2.style.transform = `rotateZ(${rotation}deg)`;
+    });
 });
