@@ -332,7 +332,16 @@ h2 {
       margin-bottom: 0rem;
     }
     #blob {
+        height: 40%;
+        aspect-ratio: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        border-radius: 50%;
         background: linear-gradient(to right, var(--grad-g-color), var(--grad-y-color));
+        animation: rotate 12s infinite;
+        transition: left 2s ease, top 1s ease;
         opacity: 0.1;
     }
     #blur {
