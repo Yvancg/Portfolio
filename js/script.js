@@ -78,6 +78,7 @@ document.addEventListener('mousemove', (event) => {
 });
 
 // Remove the effects that do not work on mobiles
+/*
 document.addEventListener("DOMContentLoaded", () => {
     const userAgent = navigator.userAgent || window.opera;
 
@@ -96,3 +97,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+*/
