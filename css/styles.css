@@ -41,7 +41,7 @@ body {
 
 /* Footer styles */
 .footer {
-    align-self: bottom;
+    margin-top: auto;
 }
 
 /* Styling for h1 elements */
@@ -73,7 +73,7 @@ h2 {
     color: var(--highlight-color);
     margin: auto;
     padding: 0 clamp(0.25rem, 0.9vw, 1rem);
-    rotate: -4deg;
+    transform: rotate(-4deg);
     transition: transform 1500ms ease-in-out;
     z-index: 2;
 }
@@ -98,7 +98,7 @@ h2 {
     left: 10px;
     margin: 20px;
     padding: 10px 20px;
-    position:init static;
+    position: static;
     text-decoration: none;
     transition: background-color 400ms, border-color 400ms;
     z-index: 1000;
@@ -179,6 +179,7 @@ h2 {
     aspect-ratio: 10 / 12;
     border-radius: 1rem;
     background-color: rgb(var(--primary-rgb) / 15%);
+    margin: auto;
     overflow: hidden;
     position: relative;
     transform-style: preserve-3d;
@@ -348,8 +349,7 @@ main {
   
 /* Articles as pages */
 main > article {
-    display:contents;
-    position: absolute;
+    position: relative;
     left: 0px;
     top: 0px;
     transition: transform 400ms ease;  
@@ -476,7 +476,7 @@ main > article {
 
 @media(max-width: 700px) {
     .screen {
-      scale: 0.6;
+      transform: scale(0.6);
       margin-bottom: 0rem;
     }
 }

@@ -78,8 +78,12 @@ document.addEventListener('mousemove', (event) => {
 });
 
 // Reload the page when the window is resized
+let resizeTimer;
 window.addEventListener('resize', () => {
-    window.location.reload();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        window.location.reload();
+    }, 250);
 });
 
 // Remove the effects that do not work on mobiles
