@@ -8,14 +8,22 @@
     --highlight-color: #666;
     --grad-y-color: gold;
     --grad-g-color: forestgreen;
+    --background-rgb: 15 15 15;
+    --blue-rgb: 255 215 0;
+    --primary-rgb: var(--blue-rgb);
+}
+
+* {
+box-sizing: border-box;
 }
 
 /* Base styles for html and body */
 html, body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    margin: 0;
+    margin: 0rem;
     font-family: 'Space Mono', monospace;
+
 }
 
 /* Styling for the body element */
@@ -23,7 +31,7 @@ body {
     display: grid;
     place-items: center;
     background-color: var(--back-color);
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* Styling for h1 elements */
@@ -74,9 +82,9 @@ h2 {
     display: inline-flex;
     gap: 5px;
     left: 10px;
-    margin-bottom: 40px;
+    margin: 20px;
     padding: 10px 20px;
-    position: fixed;
+    position:initial;
     text-decoration: none;
     transition: background-color 400ms, border-color 400ms;
     z-index: 1000;
@@ -98,18 +106,18 @@ h2 {
 .meta-link > span {
     color: var(--highlight-color);
     font-weight: 500;
+    transition: color 2000ms ease-in-out;
+}
+
+/* Styling for text inside meta-link */
+.meta-link > span:hover {
+    color: var(--light-color);
 }
 
 /* Styling for icons inside meta-link */
 .meta-link > i {
     color: var(--light-color);
     display: flex;
-}
-
-/* Styling for the footer */
-.footer {
-    display: flex;
-    justify-content: space-around;
 }
 
 /* Keyframes for rotating animation */
@@ -127,7 +135,7 @@ h2 {
 
 /* Styling for the blob element */
 #blob {
-    height: 40vmax;
+    height: 40%;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
@@ -146,4 +154,164 @@ h2 {
     width: 100%;
     position: absolute;
     backdrop-filter: blur(12vmax);
+}
+
+/* Styling for the profile photo */
+.screen {
+    width: 360px;
+    display: flex;
+    border: 3px solid rgb(var(--primary-rgb) / 80%);
+    aspect-ratio: 10 / 12;
+    border-radius: 1rem;
+    background-color: rgb(var(--primary-rgb) / 15%);
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+  
+.screen:after,
+.screen:before {
+    content: "";
+    height: 5px;
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    translate: -50% 0%;
+    background-color: var(--grad-y-color);
+}
+  
+.screen:before {
+    width: 15%;
+    top: 0rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+  
+.screen:after {
+    width: 25%;
+    bottom: 0rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+@keyframes pan-overlay {
+    from {
+      background-position: 0% 0%;
+    }
+    
+    to {
+      background-position: 0% -100%;
+    }
+}
+
+.screen-overlay {    
+    background: linear-gradient(
+      rgb(var(--primary-rgb) / 0.15),
+      rgb(var(--primary-rgb) / 0.15) 3px,
+      transparent 3px,
+      transparent 9px
+    );
+    background-size: 100% 9px;
+    height: 100%;
+    width: 100%;
+    animation: pan-overlay 22s infinite linear;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+}
+
+@keyframes pan-image {  
+    0% {
+      background-position: 36% 42%;
+      background-size: 200%;
+    }
+    
+    20% {
+      background-position: 30% 35%;
+      background-size: 200%;
+    }
+    
+    20.0001% { /* -- View 2 -- */
+      background-position: 60% 85%;
+      background-size: 500%;
+    }
+    
+    40% {
+      background-position: 49% 81%;
+      background-size: 500%;
+    }
+    
+    40.0001% { /* -- View 3 -- */
+      background-position: 80% 42%;
+      background-size: 300%;
+    }
+    
+    60% {
+      background-position: 84% 33%;
+      background-size: 300%;
+    }
+    
+    60.0001% { /* -- View 4 -- */
+      background-position: 0% 0%;
+      background-size: 300%;
+    }
+    
+    80% {
+      background-position: 15% 4%;
+      background-size: 300%;
+    }
+    
+    80.0001% { /* -- View 5 -- */
+      background-position: 80% 10%;
+      background-size: 300%;
+    }
+    
+    100% {
+      background-position: 72% 14%;
+      background-size: 300%;
+    }
+}
+
+.screen > .screen-image {
+    background-image: url("/assets/images/redcarpetsquare.jpg");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-size: 300%;
+    background-position: 0% 0%;
+    filter: sepia(100%) hue-rotate(160deg);
+    opacity: 0.6;
+    animation: pan-image 15s linear infinite;
+}
+
+.screen > .screen-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    gap: 4rem;
+    position: relative;
+    z-index: 3;
+    margin: 1rem;
+    padding-bottom: 6rem;
+    border: 1px solid rgb(var(--primary-rgb) / 50%);
+    border-radius: 0.6rem;
+}
+
+.screen > .screen-content > .screen-icon {
+    color: var(--light-color);
+    font-size: 4rem;
+    text-shadow: 0px 0px 0.5rem var(--light-color);
+}
+
+@media(max-width: 700px) {
+    .screen {
+      scale: 0.6;
+      margin-bottom: 0rem;
+    }
 }
