@@ -1,5 +1,7 @@
+/* Importing Google Font 'Space Mono' */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
+/* Root CSS variables for easy theme management */
 :root {
     --back-color: #303030;
     --light-color: cornsilk;
@@ -8,6 +10,7 @@
     --grad-g-color: forestgreen;
 }
 
+/* Base styles for html and body */
 html, body {
     height: 100vh;
     width: 100vw;
@@ -15,45 +18,50 @@ html, body {
     font-family: 'Space Mono', monospace;
 }
 
+/* Styling for the body element */
 body {
     display: grid;
     place-items: center;
     background-color: var(--back-color);
-    margin: 0;
     overflow: hidden;
 }
 
+/* Styling for h1 elements */
 h1 {
     font-size: clamp(2rem, 6vw, 8rem);
     color: var(--light-color);
     padding: 0 clamp(1rem, 3vw, 4rem);
     transition: background-color 300ms, color 300ms; /* Smooth transition for hover effect */
-    letter-spacing: 0.2ch; /* Half the width of the '0' character */
+    letter-spacing: 0.2ch; /* Adjust letter spacing */
     z-index: 1000;
 }
 
+/* Hover effect for h1 elements */
 h1:hover {
     background-color: var(--light-color);
     color: var(--back-color);
 }
 
+/* Styling for highlighted text */
 .highlight {
     color: var(--highlight-color);
 }
 
+/* Styling for h2 elements */
 h2 {
     font-size: clamp(0.5rem, 1.5vw, 2rem);
     color: var(--highlight-color);
     padding: 0 clamp(0.25rem, 0.8vw, 1rem);
     background-color: var(--light-color);
-    rotate: -4deg;
+    rotate: -4deg; /* Rotation effect */
 }
 
-/* Link style */
+/* Container for links */
 #links {
     display: flex;
 }
 
+/* Styling for meta-link elements */
 .meta-link {
     align-items: center;
     backdrop-filter: blur(3px);
@@ -66,7 +74,7 @@ h2 {
     display: inline-flex;
     gap: 5px;
     left: 10px;
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
     padding: 10px 20px;
     position: fixed;
     text-decoration: none;
@@ -74,44 +82,51 @@ h2 {
     z-index: 1000;
 }
 
+/* Hover effect for meta-link elements */
 .meta-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Styling for icons and text inside meta-link */
 .meta-link > i, .meta-link > span {
     height: 20px;
     line-height: 20px;
 }
 
+/* Styling for text inside meta-link */
 .meta-link > span {
     color: var(--highlight-color);
     font-weight: 500;
 }
 
+/* Styling for icons inside meta-link */
 .meta-link > i {
     color: var(--light-color);
     display: flex;
 }
 
+/* Styling for the footer */
 .footer {
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
+/* Keyframes for rotating animation */
 @keyframes rotate {
     from {
-      rotate: 0deg;
+        rotate: 0deg;
     }
     50% {
-      scale: 1 1.6;
+        scale: 1 1.6;
     }
     to {
-      rotate: 360deg;
+        rotate: 360deg;
     }
-  }
-  
-  #blob {
+}
+
+/* Styling for the blob element */
+#blob {
     height: 40vmax;
     aspect-ratio: 1;
     position: absolute;
@@ -121,13 +136,14 @@ h2 {
     border-radius: 50%;
     background: linear-gradient(to right, var(--grad-g-color), var(--grad-y-color));
     animation: rotate 12s infinite;
-    transition: left 1s ease, top 0.7s ease; 
+    transition: left 2s ease, top 1s ease;
     opacity: 0.6;
-  }
-  
-  #blur {
+}
+
+/* Styling for the blur effect */
+#blur {
     height: 100%;
     width: 100%;
     position: absolute;
     backdrop-filter: blur(12vmax);
-  }
+}
