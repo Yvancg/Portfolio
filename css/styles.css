@@ -333,7 +333,6 @@ h2 {
     }
     #blob {
         background: linear-gradient(to right, var(--grad-g-color), var(--grad-y-color));
-        animation: rotate 12s infinite;
         opacity: 0.1;
     }
     #blur {
