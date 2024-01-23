@@ -156,6 +156,7 @@ h2 {
     width: 100%;
     position: absolute;
     backdrop-filter: blur(12vmax);
+    -webkit-backdrop-filter: blur(12vmax);
 }
 
 /* Styling for the profile photo */
