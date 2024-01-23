@@ -76,3 +76,23 @@ document.addEventListener('mousemove', (event) => {
         h2.style.transform = `rotateZ(${rotation}deg)`;
     });
 });
+
+// Remove the effects that do not work on mobiles
+document.addEventListener("DOMContentLoaded", () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Check for iOS and Android
+    if (/iPad|iPhone|iPod/.test(userAgent) || /android/i.test(userAgent)) {
+        // Mobile detected (iOS or Android)
+        const blob = document.getElementById("blob");
+        const blur = document.getElementById("blur");
+
+        if (blob) {
+            blob.style.display = "none"; // Hide the blob
+        }
+
+        if (blur) {
+            blur.style.display = "none"; // Hide the blur
+        }
+    }
+});
