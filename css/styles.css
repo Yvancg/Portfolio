@@ -4,16 +4,23 @@
     --back-color: #303030;
     --light-color: cornsilk;
     --highlight-color: #666;
+    --grad-y-color: gold;
+    --grad-g-color: forestgreen;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-family: 'Space Mono', monospace;
 }
 
 body {
     display: grid;
     place-items: center;
-    height: 100vh;
     background-color: var(--back-color);
     margin: 0;
     overflow: hidden;
-    font-family: 'Space Mono', monospace;
 }
 
 h1 {
@@ -22,6 +29,7 @@ h1 {
     padding: 0 clamp(1rem, 3vw, 4rem);
     transition: background-color 300ms, color 300ms; /* Smooth transition for hover effect */
     letter-spacing: 0.2ch; /* Half the width of the '0' character */
+    z-index: 1000;
 }
 
 h1:hover {
@@ -33,7 +41,19 @@ h1:hover {
     color: var(--highlight-color);
 }
 
+h2 {
+    font-size: clamp(0.5rem, 1.5vw, 2rem);
+    color: var(--highlight-color);
+    padding: 0 clamp(0.25rem, 0.8vw, 1rem);
+    background-color: var(--light-color);
+    rotate: -4deg;
+}
+
 /* Link style */
+#links {
+    display: flex;
+}
+
 .meta-link {
     align-items: center;
     backdrop-filter: blur(3px);
@@ -46,7 +66,7 @@ h1:hover {
     display: inline-flex;
     gap: 5px;
     left: 10px;
-    margin-bottom: 20px; 
+    margin-bottom: 40px; 
     padding: 10px 20px;
     position: fixed;
     text-decoration: none;
@@ -65,11 +85,49 @@ h1:hover {
 }
 
 .meta-link > span {
-    color: var(--light-color);
+    color: var(--highlight-color);
     font-weight: 500;
+}
+
+.meta-link > i {
+    color: var(--light-color);
+    display: flex;
 }
 
 .footer {
     display: flex;
     justify-content: space-around; 
 }
+
+@keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    50% {
+      scale: 1 1.6;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  #blob {
+    height: 40vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, var(--grad-g-color), var(--grad-y-color));
+    animation: rotate 12s infinite;
+    transition: left 1s ease, top 0.7s ease; 
+    opacity: 0.6;
+  }
+  
+  #blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backdrop-filter: blur(12vmax);
+  }
