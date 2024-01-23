@@ -70,7 +70,9 @@ h2 {
     font-size: clamp(1rem, 3vw, 4rem);
     background-color: var(--light-color);
     color: var(--highlight-color);
+    display: inline-block;
     margin: auto;
+    align-items: center;
     padding: 0 clamp(0.25rem, 0.9vw, 1rem);
     text-align: center; 
     transform: rotate(-4deg);
