@@ -60,3 +60,20 @@ if (blob) {
         blob.style.top = `${clientY}px`;
     });
 }
+
+// Move the profile pic with the mouse
+document.addEventListener('mousemove', (event) => {
+    const { clientX } = event;
+    const screenWidth = window.innerWidth;
+    const midScreen = screenWidth / 2;
+    const rotationDegree = 80; // Maximum rotation degree
+
+    // Calculate rotation based on mouse position
+    const rotation = ((clientX - midScreen) / midScreen) * rotationDegree;
+
+    // Apply rotation to the .screen element
+    const screenElement = document.querySelector('.screen');
+    if (screenElement) {
+        screenElement.style.transform = `translate(-50%, -50%) rotateY(${rotation}deg)`;
+    }
+});

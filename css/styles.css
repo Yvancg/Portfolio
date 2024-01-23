@@ -57,11 +57,12 @@ h1:hover {
 
 /* Styling for h2 elements */
 h2 {
-    font-size: clamp(0.5rem, 1.5vw, 2rem);
-    color: var(--highlight-color);
-    padding: 0 clamp(0.25rem, 0.8vw, 1rem);
+    font-size: clamp(0.5rem, 1.8vw, 2rem);
     background-color: var(--light-color);
+    color: var(--highlight-color);
+    padding: 0 clamp(0.25rem, 0.9vw, 1rem);
     rotate: -4deg; /* Rotation effect */
+    z-index: 2;
 }
 
 /* Container for links */
@@ -84,7 +85,7 @@ h2 {
     left: 10px;
     margin: 20px;
     padding: 10px 20px;
-    position:initial;
+    position:init static;
     text-decoration: none;
     transition: background-color 400ms, border-color 400ms;
     z-index: 1000;
@@ -166,6 +167,7 @@ h2 {
     background-color: rgb(var(--primary-rgb) / 15%);
     overflow: hidden;
     position: relative;
+    transform-style: preserve-3d;
     z-index: 10;
 }
   
@@ -307,6 +309,19 @@ h2 {
     color: var(--light-color);
     font-size: 4rem;
     text-shadow: 0px 0px 0.5rem var(--light-color);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(2px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.screen {
+    animation: float 12s ease-in-out infinite;
 }
 
 @media(max-width: 700px) {
