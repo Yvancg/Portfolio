@@ -86,6 +86,16 @@ window.addEventListener('resize', () => {
     }, 250);
 });
 
+// Add a mouseover event listener to the menu items
+const menu = document.getElementById("menu");
+
+Array.from(document.getElementsByClassName("menu-item"))
+  .forEach((item, index) => {
+    item.onmouseover = () => {
+      menu.dataset.activeIndex = index;
+    }
+  });
+
 // Remove the effects that do not work on mobiles
 /*
 document.addEventListener("DOMContentLoaded", () => {

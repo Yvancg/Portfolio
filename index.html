@@ -20,6 +20,17 @@
     <!-- Main heading with highlighted letter -->
     <h1 data-value="YVANC.GOUDARD">YVAN<span class="highlight">C.</span>GOUDARD</h1>
 
+    <div id="menu">
+        <div id="menu-items">
+          <!-- I made these divs instead of links so you can click on mobile to view the effect -->
+          <div class="menu-item">Background</div>
+          <div class="menu-item">Tech History</div>
+          <div class="menu-item">Skills</div>
+          <div class="menu-item">Contact Me</div>
+        </div>
+        <div id="menu-background-pattern"></div>
+    </div>
+
     <main>
         <article data-index="1" data-status="active">
         <!-- Subheading -->
@@ -34,9 +45,32 @@
             </div>
         </div>
         </article>
-
-
+<!--
+        <article data-index="2" data-status="inactive">    
+            <div class="article-image-section article-section"></div>
+            <div class="article-description-section article-section">
+              <p>The neatest lighthouse you ever saw. Ehh, actually it's kind of messy. But that's why the pic is of the outside.</p>
+            </div>
+            <div class="article-title-section article-section">
+              <h2>Neato Toledo Lighthouse</h2>
+              <i class="fa-light fa-plus-large"></i>
+            </div>
+            <div class="article-nav-section article-section">
+              <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                <i class="fa-light fa-arrow-left-long"></i>
+              </button>
+              <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                <i class="fa-light fa-arrow-right-long"></i>
+              </button>
+            </div>
+        </article>
+-->
     </main>
+
+    <nav>
+        <div id="left-arrow" class="nav-arrow">&#9664;</div> <!-- Left arrow -->
+        <div id="right-arrow" class="nav-arrow">&#9654;</div> <!-- Right arrow -->    
+    </nav>
 
     <!-- Footer -->
     <footer class="footer">
