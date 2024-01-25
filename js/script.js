@@ -63,7 +63,7 @@ if (blob) {
 document.addEventListener('mousemove', (event) => {
     const { clientX } = event;
     const screenWidth = window.innerWidth;
-    const rotationDegree = 8; // Maximum rotation degree
+    const rotationDegree = 8;
 
     // Calculate rotation based on mouse position
     const rotation = ((clientX / screenWidth) - 0.5) * 2 * rotationDegree;
@@ -84,14 +84,34 @@ window.addEventListener('resize', () => {
     }, 250);
 });
 
+//////////////////////////////
+//////////////////////////////
+
 // Cache the articles and total number of articles
 const articles = document.querySelectorAll('main > article');
 const totalArticles = articles.length;
 
-// Function to show a specific article
-function showArticle(index) {
+// Function to show a specific article with sliding effect
+function showArticle(index, direction) {
     articles.forEach((article, idx) => {
-        article.setAttribute('data-status', idx === index ? 'active' : 'inactive');
+        // Remove all classes and reset data-status
+        article.classList.remove('active', 'slide-in-left', 'slide-in-right');
+        article.setAttribute('data-status', 'inactive');
+
+        if (idx === index) {
+            // Set the active article
+            article.classList.add('active');
+            article.setAttribute('data-status', 'active');
+        } else {
+            // Set the sliding direction for inactive articles
+            if (direction === 'left') {
+                article.setAttribute('data-status', 'becoming-active-from-after');
+                article.classList.add('slide-in-left');
+            } else if (direction === 'right') {
+                article.setAttribute('data-status', 'becoming-active-from-before');
+                article.classList.add('slide-in-right');
+            }
+        }
     });
 }
 
@@ -99,8 +119,11 @@ function showArticle(index) {
 let currentIndex = 0;
 
 function navigateArticles(direction) {
-    currentIndex = (currentIndex + direction + totalArticles) % totalArticles;
-    showArticle(currentIndex);
+    const nextIndex = (currentIndex + direction + totalArticles) % totalArticles;
+    // Determine the slide direction directly from the direction parameter
+    const slideDirection = direction === -1 ? 'right' : 'left';
+    showArticle(nextIndex, slideDirection);
+    currentIndex = nextIndex;
 }
 
 // Event listeners for navigation arrows
@@ -108,12 +131,73 @@ document.getElementById('left-arrow').addEventListener('click', () => navigateAr
 document.getElementById('right-arrow').addEventListener('click', () => navigateArticles(1));
 
 // Initialize the first article as active
-showArticle(currentIndex);
+showArticle(currentIndex, 'right');
 
-// Mouseover event listener for menu items
+
+/*
+// Cache the articles and total number of articles
+const articles = document.querySelectorAll('main > article');
+const totalArticles = articles.length;
+
+// Function to show a specific article with sliding effect
+function showArticle(index, direction) {
+    articles.forEach((article, idx) => {
+        article.classList.remove('active', 'slide-in-left', 'slide-in-right');
+        if (idx === index) {
+            article.classList.add('active');
+            article.setAttribute('data-status', 'active');
+        } else {
+            article.setAttribute('data-status', 'inactive');
+            if (direction === 'left') {
+                article.classList.add('slide-in-left');
+            } else {
+                article.classList.add('slide-in-right');
+            }
+        }
+    });
+}
+
+// Navigation by Arrows: Logic between articles
+let currentIndex = 0;
+
+function navigateArticles(direction) {
+    const nextIndex = (currentIndex + direction + totalArticles) % totalArticles;
+    const slideDirection = direction === -1 ? 'left' : 'right';
+    showArticle(nextIndex, slideDirection);
+    currentIndex = nextIndex;
+}
+
+// Event listeners for navigation arrows
+document.getElementById('left-arrow').addEventListener('click', () => navigateArticles(-1));
+document.getElementById('right-arrow').addEventListener('click', () => navigateArticles(1));
+
+// Initialize the first article as active
+showArticle(currentIndex, 'right');
+
+// Navigation by Menu: Mouseover and click event listener for menu items
 const menu = document.getElementById("menu");
-Array.from(document.getElementsByClassName("menu-item")).forEach((item, index) => {
-    item.onmouseover = () => {
-        menu.dataset.activeIndex = index;
-    };
+const menuItems = document.querySelectorAll('.menu-item');
+Array.from(menuItems).forEach((item, index) => {
+    item.addEventListener('click', () => {
+        const direction = index > currentIndex ? 'right' : 'left';
+        navigateArticles(index - currentIndex);
+        currentIndex = index;
+    });
 });
+
+// Navigation by Menu: Menu navigation
+document.addEventListener("DOMContentLoaded", () => {
+    // Add click event listeners to each menu item
+    menuItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            const direction = index > currentIndex ? 'right' : 'left';
+            showArticle(index, direction);
+        });
+    });
+});
+
+
+
+////////////////////////
+////////////////////////
+*/

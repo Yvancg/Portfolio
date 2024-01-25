@@ -47,8 +47,8 @@ h1 {
     font-size: clamp(2rem, 6vw, 8rem);
     color: var(--light-color);
     padding: 0 clamp(1rem, 3vw, 4rem);
-    transition: background-color 300ms, color 300ms; /* Smooth transition for hover effect */
-    letter-spacing: 0.2ch; /* Adjust letter spacing */
+    transition: background-color 300ms, color 300ms;
+    letter-spacing: 0.2ch;
     z-index: 1000;
 }
 
@@ -351,12 +351,23 @@ main {
 /* Articles as pages */
 main > article {
     position: absolute;
-    align-items: center;
     transition: transform 400ms ease;  
 }
-  
+
+.slide-in-left {
+    transform: translateX(-200%);
+}
+
+.slide-in-right {
+    transform: translateX(200%);
+}
+
+.active {
+    transform: translateX(0%);
+}
+
 main > article[data-status="inactive"] {
-    transform: translateX(-100%);
+    transform: translateX(-200%);
     transition: none;
 }
   
@@ -365,93 +376,38 @@ main > article[data-status="active"] {
 }
   
 main > article[data-status="before"] {
-    transform: translateX(-100%);
+    transform: translateX(-200%);
 }
   
 main > article[data-status="after"] {
-    transform: translateX(100%);
+    transform: translateX(200%);
 }
   
 main > article[data-status="becoming-active-from-before"] {
-    transform: translateX(-100%);
+    transform: translateX(-200%);
     transition: none;
 }
   
 main > article[data-status="becoming-active-from-after"] {
-    transform: translateX(100%);
+    transform: translateX(200%);
     transition: none;
 }
   
 main > article > .article-section {
-    height: 100%;
+    height: auto;
     display: flex;
-}
-  
-main > article > .article-description-section {
-    border-left: 1px solid var(--border-color);
-}
-  
-main > article > .article-title-section {
-    border-top: 1px solid var(--border-color);
-}
-  
-main > article:first-child > .article-image-section {
-    background-image: url("https://images.unsplash.com/photo-1565626424178-c699f6601afd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80");
-}
-  
-main > article:nth-child(2) > .article-image-section {
-    background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
-}
-  
-main > article:nth-child(3) > .article-image-section {
-    background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80");
-}
-  
-main > article:nth-child(4) > .article-image-section {
-    background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
-}
-  
-main > article > .article-image-section {
-    background-position: center;
-    background-size: cover;
 }
   
 main > article > .article-description-section {
     flex-direction: column;
     justify-content: flex-end;
-    padding: 4rem; 
+    padding: 5rem;
+    margin-left: 20%;
 }
   
 main > article > .article-description-section > p {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 1.25em;
-}
-  
-main > article > .article-description-section > p  > a:hover {
-    text-decoration: underline;
-}
-  
-main > article > .article-title-section {
-    align-items: center; 
-    justify-content: space-between;
-    padding: 2rem 4rem;
-}
-  
-main > article > .article-title-section * {
-    color: white;
-}
-  
-main > article > .article-title-section > h2 {
-    flex-basis: 50%;
-    font-size: 3.5rem;
-    line-height: 3rem;
-    margin: 0px;
-    text-transform: uppercase;
-}
-  
-main > article > .article-title-section > i {
-    color: rgba(255, 255, 255, 0.75);
-    font-size:  4rem;
+    color: var(--light-color);
+    font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 /* Styling for the menu */
@@ -554,7 +510,7 @@ main > article > .article-title-section > i {
     font-size: 4rem;
     color: var(--light-color);
     opacity: 0.2;
-    z-index: 1001; /* Ensure it's above other content */
+    z-index: 1001;
 }
 
 .nav-arrow:hover {
