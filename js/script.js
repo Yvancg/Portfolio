@@ -1,7 +1,6 @@
 // Define a string of uppercase letters for the animation
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// Add an event listener for when the DOM content is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     // Select the first h1 element in the document
     const header = document.querySelector("h1");
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Define the mouseover event handler function
 function handleMouseOver() {
     // Initialize the iteration counter
     let iteration = 0;
@@ -86,34 +84,36 @@ window.addEventListener('resize', () => {
     }, 250);
 });
 
-// Add a mouseover event listener to the menu items
+// Cache the articles and total number of articles
+const articles = document.querySelectorAll('main > article');
+const totalArticles = articles.length;
+
+// Function to show a specific article
+function showArticle(index) {
+    articles.forEach((article, idx) => {
+        article.setAttribute('data-status', idx === index ? 'active' : 'inactive');
+    });
+}
+
+// Navigation logic between articles
+let currentIndex = 0;
+
+function navigateArticles(direction) {
+    currentIndex = (currentIndex + direction + totalArticles) % totalArticles;
+    showArticle(currentIndex);
+}
+
+// Event listeners for navigation arrows
+document.getElementById('left-arrow').addEventListener('click', () => navigateArticles(-1));
+document.getElementById('right-arrow').addEventListener('click', () => navigateArticles(1));
+
+// Initialize the first article as active
+showArticle(currentIndex);
+
+// Mouseover event listener for menu items
 const menu = document.getElementById("menu");
-
-Array.from(document.getElementsByClassName("menu-item"))
-  .forEach((item, index) => {
+Array.from(document.getElementsByClassName("menu-item")).forEach((item, index) => {
     item.onmouseover = () => {
-      menu.dataset.activeIndex = index;
-    }
-  });
-
-// Remove the effects that do not work on mobiles
-/*
-document.addEventListener("DOMContentLoaded", () => {
-    const userAgent = navigator.userAgent || window.opera;
-
-    // Check for iOS and Android
-    if (/iPad|iPhone|iPod/.test(userAgent) || /android/i.test(userAgent)) {
-        // Mobile detected (iOS or Android)
-        const blob = document.getElementById("blob");
-        const blur = document.getElementById("blur");
-
-        if (blob) {
-            blob.style.display = "none"; // Hide the blob
-        }
-
-        if (blur) {
-            blur.style.display = "none"; // Hide the blur
-        }
-    }
+        menu.dataset.activeIndex = index;
+    };
 });
-*/

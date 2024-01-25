@@ -17,12 +17,6 @@
     box-sizing: border-box;
 }
 
-/*
-.content {
-    flex-grow: 1;
-}
-*/
-
 /* Base styles for html and body */
 html, body {
     min-height: 100vh;
@@ -356,9 +350,8 @@ main {
   
 /* Articles as pages */
 main > article {
-    position: relative;
-    left: 0px;
-    top: 0px;
+    position: absolute;
+    align-items: center;
     transition: transform 400ms ease;  
 }
   
@@ -394,13 +387,11 @@ main > article > .article-section {
     display: flex;
 }
   
-main > article > .article-description-section,
-main > article > .article-nav-section {
+main > article > .article-description-section {
     border-left: 1px solid var(--border-color);
 }
   
-main > article > .article-title-section,
-main > article > .article-nav-section {
+main > article > .article-title-section {
     border-top: 1px solid var(--border-color);
 }
   
@@ -462,29 +453,11 @@ main > article > .article-title-section > i {
     color: rgba(255, 255, 255, 0.75);
     font-size:  4rem;
 }
-  
-main > article > .article-nav-section > .article-nav-button {
-    background-color: transparent;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 3rem;
-    cursor: pointer;
-}
-  
-main > article > .article-nav-section > .article-nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.02);
-}
-  
-main > article > .article-nav-section > .article-nav-button:nth-child(2) {
-    border-left: 1px solid var(--border-color);
-}
 
 /* Styling for the menu */
 #menu {  
   position:fixed;
-  top: 30%;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
@@ -492,7 +465,9 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
 
 #menu-items {
   margin-left: clamp(1rem, 5vw, 12rem);
+  margin-top: 15%;
   position: absolute;
+  transition: opacity 1500ms ease;
   z-index: 2;
 }
 
@@ -557,7 +532,6 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
 
 #menu-items:hover > .menu-item:hover {
   opacity: 1;
-  transition: opacity 1500ms ease;
 }
 
 .menu-item {
@@ -572,14 +546,21 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
 }
 
 .nav-arrow {
+    cursor: pointer;
     position: fixed;
     top: 70%;
     transform: translateY(-70%);
+    transition: opacity 400ms ease-in-out;
     font-size: 4rem;
     color: var(--light-color);
-    cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.2;
     z-index: 1001; /* Ensure it's above other content */
+}
+
+.nav-arrow:hover {
+    text-shadow:
+        0 0 10px var(--grad-y-color);
+    opacity: 0.5;
 }
 
 #left-arrow {
