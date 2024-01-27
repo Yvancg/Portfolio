@@ -86,52 +86,42 @@ window.addEventListener('resize', () => {
 
 //////////////////////////////
 //////////////////////////////
-
-// Cache the articles and total number of articles
+// Cache the articles
 const articles = document.querySelectorAll('main > article');
 const totalArticles = articles.length;
 
-// Function to show a specific article with sliding effect
-function showArticle(index, direction) {
-    articles.forEach((article, idx) => {
-        // Remove all classes and reset data-status
-        article.classList.remove('active', 'slide-in-left', 'slide-in-right');
-        article.setAttribute('data-status', 'inactive');
-
-        if (idx === index) {
-            // Set the active article
-            article.classList.add('active');
-            article.setAttribute('data-status', 'active');
-        } else {
-            // Set the sliding direction for inactive articles
-            if (direction === 'left') {
-                article.setAttribute('data-status', 'becoming-active-from-after');
-                article.classList.add('slide-in-left');
-            } else if (direction === 'right') {
-                article.setAttribute('data-status', 'becoming-active-from-before');
-                article.classList.add('slide-in-right');
-            }
-        }
-    });
-}
-
-// Navigation logic between articles
+// Current index of the displayed article
 let currentIndex = 0;
 
-function navigateArticles(direction) {
-    const nextIndex = (currentIndex + direction + totalArticles) % totalArticles;
-    // Determine the slide direction directly from the direction parameter
-    const slideDirection = direction === -1 ? 'right' : 'left';
-    showArticle(nextIndex, slideDirection);
-    currentIndex = nextIndex;
+// Function to show a specific article
+function showArticle(index) {
+    articles.forEach((article, idx) => {
+        article.style.display = idx === index ? 'block' : 'none'; // Show only the selected article
+    });
+    currentIndex = index; // Update the current index
 }
 
-// Event listeners for navigation arrows
-document.getElementById('left-arrow').addEventListener('click', () => navigateArticles(-1));
-document.getElementById('right-arrow').addEventListener('click', () => navigateArticles(1));
-
 // Initialize the first article as active
-showArticle(currentIndex, 'right');
+showArticle(currentIndex);
+
+// Menu navigation
+const menuItems = document.querySelectorAll('.menu-item');
+menuItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        showArticle(index); // Show the article corresponding to the clicked menu item
+    });
+});
+
+// Update menu background pattern on hover
+const menu = document.getElementById("menu");
+menuItems.forEach((item, index) => {
+    item.onmouseover = () => {
+        menu.dataset.activeIndex = index; // Update the active index for the background pattern
+    };
+});
+
+
+
 
 
 /*
@@ -184,6 +174,7 @@ Array.from(menuItems).forEach((item, index) => {
         currentIndex = index;
     });
 });
+
 
 // Navigation by Menu: Menu navigation
 document.addEventListener("DOMContentLoaded", () => {

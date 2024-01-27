@@ -366,11 +366,12 @@ main > article {
     transform: translateX(0%);
 }
 
+/*
 main > article[data-status="inactive"] {
     transform: translateX(-200%);
     transition: none;
 }
-  
+
 main > article[data-status="active"] {
     transform: translateX(0%);
 }
@@ -392,7 +393,8 @@ main > article[data-status="becoming-active-from-after"] {
     transform: translateX(200%);
     transition: none;
 }
-  
+*/
+
 main > article > .article-section {
     height: auto;
     display: flex;
@@ -415,59 +417,47 @@ main > article > .article-description-section > p {
   position:fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 100;
+  z-index: 1;
 }
 
 #menu-items {
   margin-left: clamp(1rem, 5vw, 12rem);
-  margin-top: 15%;
-  position: absolute;
+  margin-top: clamp(3rem, 15vw, 20rem);
+  position: relative;
   transition: opacity 1500ms ease;
   z-index: 2;
 }
 
 #menu[data-active-index="0"] > #menu-background-pattern {
-  background-position: 0% -25%;
+  background-position: 0% -20%;
 }
 
 #menu[data-active-index="1"] > #menu-background-pattern {
-  background-position: 0% -50%;
+  background-position: 0% -40%;
 }
 
 #menu[data-active-index="2"] > #menu-background-pattern {
-  background-position: 0% -75%;
+  background-position: 0% -60%;
 }
 
 #menu[data-active-index="3"] > #menu-background-pattern {
-  background-position: 0% -100%;
+  background-position: 0% -80%;
 }
 
-#menu[data-active-index="0"] > #menu-background-image {
-  background-position: center 45%;
-}
-
-#menu[data-active-index="1"] > #menu-background-image {
-  background-position: center 50%;
-}
-
-#menu[data-active-index="2"] > #menu-background-image {
-  background-position: center 55%;
-}
-
-#menu[data-active-index="3"] > #menu-background-image {
-  background-position: center 60%;
-}
-
+#menu[data-active-index="4"] > #menu-background-pattern {
+    background-position: 0% -100%;
+  }
+  
 #menu-background-pattern {
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.1) 9%, 
+    rgba(255, 255, 255, 0.1) 5%, 
     transparent 9%
   );
   background-position: 0% 0%;
-  background-size: 12vmin 12vmin;
+  background-size: 7vmin 7vmin;
   height: 100vh;
   left: 0px;
+  pointer-events: none;
   position: absolute;
   top: 0px;
   transition: opacity 800ms ease, 
@@ -476,47 +466,31 @@ main > article > .article-description-section > p {
   width: 100vw;
   z-index: 1;
 }
-
+  
 #menu-items:hover ~ #menu-background-pattern {
-  background-size: 11vmin 11vmin;
-  opacity: 0.5;
+    background-size: 11vmin 11vmin;
+    opacity: 0.5;
 }
-
+  
 #menu-items:hover > .menu-item {
-  opacity: 0.3;
+    opacity: 0.3;
 }
-
+  
 #menu-items:hover > .menu-item:hover {
-  opacity: 1;
+    opacity: 1; 
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    padding: clamp(0.09rem, 0.15vw, 0.3rem) 0rem;
 }
 
 .menu-item {
-  color: var(--light-color);
-  cursor: pointer;
-  display: block;
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  opacity: 0.2;
-  padding: clamp(0.09rem, 0.15vw, 0.3rem) 0rem;
-  text-decoration: none;
-  transition: opacity 400ms ease-in-out;
-}
-
-.nav-arrow {
-    cursor: pointer;
-    position: fixed;
-    top: 70%;
-    transform: translateY(-70%);
-    transition: opacity 400ms ease-in-out;
-    font-size: 4rem;
     color: var(--light-color);
-    opacity: 0.2;
-    z-index: 1001;
-}
-
-.nav-arrow:hover {
-    text-shadow:
-        0 0 10px var(--grad-y-color);
-    opacity: 0.5;
+    cursor: pointer;
+    display: block;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    opacity: 0.1;
+    padding: clamp(0.08rem, 0.1vw, 0.2rem) 0rem;
+    text-decoration: none;
+    transition: opacity 400ms ease-in-out, font-size 800ms ease-in-out;
 }
 
 #left-arrow {
