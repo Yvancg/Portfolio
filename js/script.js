@@ -54,8 +54,8 @@ if (blob) {
         // Get the clientX and clientY from the event (pointer's position)
         const { clientX, clientY } = event;
         // Update the position of the blob element to follow the pointer
-        blob.style.left = `${clientX - blob.offsetWidth / 2}px`;
-        blob.style.top = `${clientY - blob.offsetHeight / 2}px`;
+        blob.style.left = `${clientX}px`;
+        blob.style.top = `${clientY}px`;
     });
 }
 
@@ -77,7 +77,7 @@ document.addEventListener('mousemove', (event) => {
 
 // Cache the articles
 const articles = document.querySelectorAll('main > article');
-const totalArticles = articles.length;
+const menuItems = document.querySelectorAll('.menu-item');
 
 // Current index of the displayed article
 let currentIndex = 0;
@@ -85,16 +85,24 @@ let currentIndex = 0;
 // Function to show a specific article
 function showArticle(index) {
     articles.forEach((article, idx) => {
-        article.style.display = idx === index ? 'block' : 'none'; // Show only the selected article
+        article.classList.remove('article-active');
+        if (idx === index) {
+            article.classList.add('article-active');
+        }
     });
-    currentIndex = index; // Update the current index
 }
 
+// Add click event listeners to each menu item
+menuItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        showArticle(index);
+    });
+});
+
 // Initialize the first article as active
-showArticle(currentIndex);
+showArticle(0); //
 
 // Menu navigation
-const menuItems = document.querySelectorAll('.menu-item');
 menuItems.forEach((item, index) => {
     item.addEventListener('click', () => {
         showArticle(index); // Show the article corresponding to the clicked menu item

@@ -8,19 +8,12 @@
     --light-color: cornsilk;
     --highlight-color: #666;
     --grad-y-color: rgb(225, 0, 255);
-    --grad-g-color: #7F00FF;
+    --grad-g-color: rgb(127, 0, 255);
     --grad-o-color: rgb(255, 215, 0);
     --background-rgb: 10 25 47;
     --gold-rgb: 255 215 0;
     --primary-rgb: var(--gold-rgb);
 }
-
-
-/*
-* {
-    box-sizing: border-box;
-}
-*/
 
 /* Base styles for html and body */
 html, body {
@@ -164,7 +157,7 @@ h2 {
 #blob {
     height: 40%;
     aspect-ratio: 1;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
@@ -173,6 +166,7 @@ h2 {
     animation: rotate 12s infinite;
     transition: left 2s ease, top 1s ease;
     opacity: 0.6;
+    z-index: -1;
 }
 
 /* Styling for the blur effect */
@@ -367,7 +361,8 @@ main {
 /* Articles as pages */
 main > article {
     position: absolute;
-    transition: transform 400ms ease;  
+    opacity: 0;
+    transition: opacity 1s ease;  
 }
 
 main > article > .article-section {
@@ -384,16 +379,8 @@ main > article > .article-section > p {
     margin-left: 20%;
 }
 
-.slide-in-left {
-    transform: translateX(-200%);
-}
-
-.slide-in-right {
-    transform: translateX(200%);
-}
-
-.active {
-    transform: translateX(0%);
+.article-active {
+    opacity: 1;
 }
 
 /* Styling for the menu */
@@ -475,14 +462,6 @@ main > article > .article-section > p {
     padding: clamp(0.08rem, 0.1vw, 0.2rem) 0rem;
     text-decoration: none;
     transition: opacity 400ms ease-in-out, font-size 800ms ease-in-out;
-}
-
-#left-arrow {
-    left: 2rem;
-}
-
-#right-arrow {
-    right: 2rem;
 }
 
 /* Styling for the form */
@@ -584,17 +563,30 @@ form label {
 
 .tag {
     display: inline-block;
-    background: rgba(255, 140, 0, 0.8);
+    background: var(--light-color);
     color: var(--back-color);
     padding: 5px 10px;
     margin: auto;
-    font-size: 0.8em;
+    font-size: 0.7em;
+    font-weight: 900;
+    border: 1px solid var(--back-color);
 }
 
 .card-text {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: var(--back-color);
     padding: 15px;
+    border-top: 1px solid var(--back-color);
+}
+
+.skill-style {
+    color: var(--grad-y-color);
+    font-size: 2rem;
+}
+
+.upskill-style {
+    color: var(--grad-g-color);
+    font-size: 1.5rem;
 }
 
 /* Additional styles for responsiveness */
