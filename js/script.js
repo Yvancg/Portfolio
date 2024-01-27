@@ -54,8 +54,8 @@ if (blob) {
         // Get the clientX and clientY from the event (pointer's position)
         const { clientX, clientY } = event;
         // Update the position of the blob element to follow the pointer
-        blob.style.left = `${clientX}px`;
-        blob.style.top = `${clientY}px`;
+        blob.style.left = `${clientX - blob.offsetWidth / 2}px`;
+        blob.style.top = `${clientY - blob.offsetHeight / 2}px`;
     });
 }
 
@@ -75,17 +75,6 @@ document.addEventListener('mousemove', (event) => {
     });
 });
 
-// Reload the page when the window is resized
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        window.location.reload();
-    }, 250);
-});
-
-//////////////////////////////
-//////////////////////////////
 // Cache the articles
 const articles = document.querySelectorAll('main > article');
 const totalArticles = articles.length;
@@ -128,73 +117,3 @@ function sendMail() {
     var body = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
     window.location.href = `mailto:yvan@umbrellight.com?subject=Contact Form&body=${encodeURIComponent(body)}`;
 }
-
-
-/*
-// Cache the articles and total number of articles
-const articles = document.querySelectorAll('main > article');
-const totalArticles = articles.length;
-
-// Function to show a specific article with sliding effect
-function showArticle(index, direction) {
-    articles.forEach((article, idx) => {
-        article.classList.remove('active', 'slide-in-left', 'slide-in-right');
-        if (idx === index) {
-            article.classList.add('active');
-            article.setAttribute('data-status', 'active');
-        } else {
-            article.setAttribute('data-status', 'inactive');
-            if (direction === 'left') {
-                article.classList.add('slide-in-left');
-            } else {
-                article.classList.add('slide-in-right');
-            }
-        }
-    });
-}
-
-// Navigation by Arrows: Logic between articles
-let currentIndex = 0;
-
-function navigateArticles(direction) {
-    const nextIndex = (currentIndex + direction + totalArticles) % totalArticles;
-    const slideDirection = direction === -1 ? 'left' : 'right';
-    showArticle(nextIndex, slideDirection);
-    currentIndex = nextIndex;
-}
-
-// Event listeners for navigation arrows
-document.getElementById('left-arrow').addEventListener('click', () => navigateArticles(-1));
-document.getElementById('right-arrow').addEventListener('click', () => navigateArticles(1));
-
-// Initialize the first article as active
-showArticle(currentIndex, 'right');
-
-// Navigation by Menu: Mouseover and click event listener for menu items
-const menu = document.getElementById("menu");
-const menuItems = document.querySelectorAll('.menu-item');
-Array.from(menuItems).forEach((item, index) => {
-    item.addEventListener('click', () => {
-        const direction = index > currentIndex ? 'right' : 'left';
-        navigateArticles(index - currentIndex);
-        currentIndex = index;
-    });
-});
-
-
-// Navigation by Menu: Menu navigation
-document.addEventListener("DOMContentLoaded", () => {
-    // Add click event listeners to each menu item
-    menuItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            const direction = index > currentIndex ? 'right' : 'left';
-            showArticle(index, direction);
-        });
-    });
-});
-
-
-
-////////////////////////
-////////////////////////
-*/

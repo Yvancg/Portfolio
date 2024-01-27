@@ -536,7 +536,7 @@ form label {
 /* Styling for Portfolio */
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 4vh;
     padding: 4vh;
     margin-left: 30%;
@@ -559,12 +559,16 @@ form label {
 
 .card-image {
     position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    top:0;
 }
 
 .card-image img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit:cover; 
 }
 
 .tags {
