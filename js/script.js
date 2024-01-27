@@ -120,8 +120,14 @@ menuItems.forEach((item, index) => {
     };
 });
 
-
-
+// Email obfuscation
+function sendMail() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    var body = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    window.location.href = `mailto:yvan@umbrellight.com?subject=Contact Form&body=${encodeURIComponent(body)}`;
+}
 
 
 /*
