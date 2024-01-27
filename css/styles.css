@@ -2,17 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 /* Root CSS variables for easy theme management */
+
 :root {
-    --back-color: #303030;
+    --back-color: #0A192F;
     --light-color: cornsilk;
     --highlight-color: #666;
-    --grad-y-color: gold;
-    --grad-g-color: forestgreen;
-    --background-rgb: 15 15 15;
-    --blue-rgb: 255 215 0;
-    --primary-rgb: var(--blue-rgb);
+    --grad-y-color: rgb(225, 0, 255);
+    --grad-g-color: #7F00FF;
+    --grad-o-color: rgb(255, 215, 0);
+    --background-rgb: 10 25 47;
+    --gold-rgb: 255 215 0;
+    --primary-rgb: var(--gold-rgb);
 }
 
+
+/*
+* {
+    box-sizing: border-box;
+}
+*/
 
 /* Base styles for html and body */
 html, body {
@@ -200,7 +208,7 @@ h2 {
     z-index: 4;
     left: 50%;
     translate: -50% 0%;
-    background-color: var(--grad-y-color);
+    background-color: var(--grad-o-color);
 }
   
 .screen:before {
@@ -576,7 +584,7 @@ form label {
 
 .tag {
     display: inline-block;
-    background: rgba(255, 215, 0, 0.8);
+    background: rgba(255, 140, 0, 0.8);
     color: var(--back-color);
     padding: 5px 10px;
     margin: auto;
@@ -585,7 +593,7 @@ form label {
 
 .card-text {
     font-size: 0.8rem;
-    color: #303030;
+    color: var(--back-color);
     padding: 15px;
 }
 
