@@ -13,9 +13,11 @@
     --primary-rgb: var(--blue-rgb);
 }
 
+/*
 * {
     box-sizing: border-box;
 }
+*/
 
 /* Base styles for html and body */
 html, body {
@@ -404,12 +406,12 @@ main > article > .article-description-section {
     flex-direction: column;
     justify-content: flex-end;
     padding: 5rem;
-    margin-left: 20%;
 }
   
 main > article > .article-description-section > p {
     color: var(--light-color);
     font-size: clamp(1rem, 1.5vw, 2rem);
+    margin-left: 20%;
 }
 
 /* Styling for the menu */
@@ -501,6 +503,58 @@ main > article > .article-description-section > p {
     right: 2rem;
 }
 
+/* Styling for the form */
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1vh;
+    padding: 2vh;
+}
+
+/* Styling for input fields and textarea */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    max-width: 500px;
+    margin:auto;
+    padding: 0.5rem;
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    background-color: var(--back-color);
+    color: var(--light-color);
+    font-size: 1rem;
+}
+
+/* Styling for the submit button */
+form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--back-color);
+    color: var(--light-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 400ms ease-in-out;
+}
+
+/* Hover effect for the submit button */
+form button:hover {
+    background-color: var(--grad-y-color);
+    color: var(--back-color);
+}
+
+/* Styling for labels */
+form label {
+    color: var(--light-color);
+    font-size: 1rem;
+}
+
+/* Additional styles for responsiveness */
 @media(max-width: 700px) {
     .screen {
         transform: scale(0.6);
