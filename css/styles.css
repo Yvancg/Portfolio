@@ -542,6 +542,14 @@ form label {
     background: var(--light-color);
     border-radius: 10px;
     overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .card-image {
@@ -556,20 +564,24 @@ form label {
 
 .tags {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .tag {
-    background: rgba(var(--grad-y-color), 0.5);
-    color: rgba(var(--back-color), 0.5));
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.8);
+    color: var(--back-color);
     padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
+    margin: auto;
     font-size: 0.8em;
 }
 
 .card-text {
+    font-size: 0.8rem;
+    color: #303030;
     padding: 15px;
 }
 
