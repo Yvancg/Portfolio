@@ -171,9 +171,11 @@ h2 {
 
 /* Styling for the blur effect */
 #blur {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
     backdrop-filter: blur(12vmax);
     -webkit-backdrop-filter: blur(12vmax);
 }
@@ -543,13 +545,13 @@ form label {
     border-radius: 10px;
     overflow: hidden;
     margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
 .card-image {
@@ -592,7 +594,7 @@ form label {
         margin-bottom: 0rem;
     }
     h2 {
-        transform: rotate(0deg); /* Remove or reduce rotation for smaller screens */
+        transform: rotate(0deg);
     }
     .portfolio {
         grid-template-columns: 1fr;
