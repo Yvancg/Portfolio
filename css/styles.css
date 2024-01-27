@@ -13,11 +13,6 @@
     --primary-rgb: var(--blue-rgb);
 }
 
-/*
-* {
-    box-sizing: border-box;
-}
-*/
 
 /* Base styles for html and body */
 html, body {
