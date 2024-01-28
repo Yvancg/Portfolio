@@ -1,5 +1,3 @@
-/* Importing Google Font 'Space Mono' */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
 /* Root CSS variables for easy theme management */
 
@@ -18,7 +16,7 @@
 /* Base styles for html and body */
 html, body {
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     margin: 0rem;
     font-family: 'Space Mono', monospace;
 }
@@ -373,7 +371,7 @@ main > article > .article-section {
     height: auto;
     padding: 2rem;
 }
-  
+
 main > article > .article-section > p {
     margin-left: 20%;
 }
