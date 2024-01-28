@@ -355,7 +355,6 @@ main {
     flex-grow: 1;
     position: relative;
     width: 100%;
-    height: 100%;
 }
   
 /* Articles as pages */
@@ -363,7 +362,7 @@ main > article {
     position: absolute;
     opacity: 0;
     filter: blur(20px);
-    transition: opacity 1s ease-in-out, filter 0.6s ease;  
+    transition: opacity 1s ease-in-out, filter 0.6s ease;
 }
 
 main > article > .article-section {
@@ -372,7 +371,6 @@ main > article > .article-section {
     flex-direction: column;
     font-size: clamp(1rem, 1.5vw, 2rem);
     height: auto;
-    justify-content: flex-end;
     padding: 2rem;
 }
   
