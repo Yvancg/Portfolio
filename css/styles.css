@@ -361,6 +361,7 @@ main > article {
     opacity: 0;
     filter: blur(20px);
     transition: opacity 1s ease-in-out, filter 0.6s ease;
+    visibility: hidden;
 }
 
 main > article > .article-section {
@@ -379,6 +380,7 @@ main > article > .article-section > p {
 .article-active {
     opacity: 1;
     filter: blur(0);
+    visibility: visible;
 }
 
 /* Styling for the menu */
