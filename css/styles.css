@@ -571,14 +571,13 @@ form label {
     margin: auto;
     font-size: 0.7em;
     font-weight: 900;
-    border: 1px solid var(--back-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .card-text {
     font-size: 1rem;
     color: var(--back-color);
     padding: 15px;
-    border-top: 1px solid var(--back-color);
 }
 
 .skill-style {
