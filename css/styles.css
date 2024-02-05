@@ -1,6 +1,5 @@
 
-/* Root CSS variables for easy theme management */
-
+/* Root CSS variables */
 :root {
     --back-color: #0A192F;
     --light-color: cornsilk;
@@ -64,17 +63,20 @@ h1:hover {
 }
 
 /* Styling for h2 elements */
-h2 {
+main > article h2 {
     font-size: clamp(1rem, 3vw, 4rem);
     background-color: var(--light-color);
     color: var(--highlight-color);
-    display: inline-block;
-    margin: auto;
+    display: block; /* Change from inline-block to block if needed */
+    margin: 0 auto; /* Ensure it's centered by applying margin auto */
     align-items: center;
     padding: 0 clamp(0.3rem, 1vw, 1.3rem);
     text-align: center; 
     transform: rotate(-4deg);
     transition: transform 1500ms ease-in-out;
+    width: fit-content; /* Makes the background only as wide as the content */
+    margin-left: auto;
+    margin-right: auto;
     z-index: 2;
 }
 
