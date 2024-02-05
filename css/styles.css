@@ -530,7 +530,7 @@ form label {
     grid-template-columns: repeat(2, 1fr);
     gap: 4vh;
     padding: 4vh;
-    margin-left: 30%;
+    margin-left: 20%;
     margin-right: 10%;
 }
 
