@@ -348,6 +348,7 @@ h2 {
 
 header {
     display: flex;
+    position: static;
 }
 
 /* Styling for the main */
@@ -596,7 +597,7 @@ form label {
 }
 
 /* Additional styles for responsiveness */
-@media(max-width: 700px) {
+@media(max-width: 768px) {
     .screen {
         transform: scale(0.6);
         margin-bottom: 0rem;
@@ -606,5 +607,22 @@ form label {
     }
     .portfolio {
         grid-template-columns: 1fr;
+        margin-left: 5%;
+        margin-right: 5%;
     }
+    #menu, .navigation, #hamburger-btn {
+        display: none;
+    }
+    main article {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        margin: 0 auto;
+        width: 90%;
+        display: block;
+        filter: none;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+    }    
 }
