@@ -624,5 +624,10 @@ form label {
         opacity: 1;
         visibility: visible;
         position: relative;
-    }    
+    }
+    main > article > .article-section > p {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1rem;
+    }
 }
